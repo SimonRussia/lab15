@@ -17,4 +17,4 @@ script:
   - valgrind --leak-check=yes ./a.out
 
 after_script:
-  - echo "It is good build"
+  - echo "It's OK! (:"
