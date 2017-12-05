@@ -2,10 +2,6 @@ language: cpp
 
 notifications:
   email: false
-  
-compiler: gcc
-
-dist: trusty
 
 cache:
   apt: true
