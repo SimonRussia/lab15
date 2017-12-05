@@ -4,6 +4,9 @@ sudo: false
 
 notifications:
   email: false
+  
+python:
+  - "3.3"
 
 install:
   - pip install pyflakes
