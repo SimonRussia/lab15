@@ -9,7 +9,6 @@ python:
   - "3.3"
 
 install:
-  - pip install pyflakes
   - pip install cpplint
   - pip install cppcheck
   - pip install oclint
