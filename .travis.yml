@@ -1,6 +1,4 @@
-language: cpp
-
-sudo: false
+language: python
 
 notifications:
   email: false
