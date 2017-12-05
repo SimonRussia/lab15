@@ -2,21 +2,18 @@ language: cpp
 
 notifications:
   email: false
+  
+compiler: gcc
+
+dist: trusty
 
 before_install:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test > /dev/null 2>&1
-  - sudo add-apt-repository -y ppa:h-rayflood/llvm > /dev/null 2>&1
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
-  - sudo apt-get -qq -y build-dep emacs > /dev/null 2>&1
-  - wget -q http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz
-  - tar xf emacs-24.5.tar.gz
-  - cd emacs-24.5
-  - ./configure > /dev/null 2>&1
-  - make > /dev/null 2>&1
-  - sudo make install > /dev/null 2>&1
-  - cd ../
-  - sudo apt-get install --allow-unauthenticated -y -qq g++-5 clang-3.4 leiningen cppcheck valgrind  > /dev/null 2>&1
-  - ./build > /dev/null
+  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.9; fi
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
+  - sudo pip install cpp-coveralls pyyaml
+  - sudo apt-get install -y valgrind libeigen3-dev
   
 script:   
 - valgrind --leak-check=yes -v ./open
