@@ -1,15 +1,21 @@
-language: python
+language: cpp
 
 notifications:
   email: false
-  
-python:
-  - "3.3"
 
-install:
-  - pip install cpplint
-  - pip install cppcheck
-  - pip install oclint
+matrix:
+  include:
+
+    # Linux C++14 GCC builds
+    - os: linux
+      compiler: gcc
+      addons: &gcc7
+        apt:
+          sources: ['ubuntu-toolchain-r-test']
+          packages:
+           - gcc-6
+           - g++-6
+      env: get ubuntu-toolchain
   
 script:   
 - cpplint for_lint.cpp
