@@ -8,16 +8,15 @@ matrix:
 
     # Linux C++14 GCC builds
     - os: linux
-      compiler: gcc
-      addons: &gcc7
-        apt:
-          sources: ['ubuntu-toolchain-r-test']
-          packages:
-           - gcc-6
-           - g++-6
+      addons:
+      apt:
+        sources:
+          - ubuntu-toolchain-r-test
+        packages:
+          - gcc-6
+          - g++-6
+          - valgrind
       env: get ubuntu-toolchain
   
 script:   
-- cpplint for_lint.cpp
-- cppcheck for_lint.cpp
-- oclint for_lint.cpp
+- valgrind --leak-check=yes -v ./open
