@@ -13,4 +13,7 @@ before_install:
   - sudo apt-get install -y valgrind libeigen3-dev
   
 script:   
-- valgrind --leak-check=yes open
+  - valgrind --leak-check=yes open
+
+after_script:
+  - echo "good build"
