@@ -1,8 +1,15 @@
 language: cpp
 
+sudo: false
+
 notifications:
   email: false
 
+install:
+  - pip install cpplint
+  - pip install cppcheck
+  - pip install oclint
+  
 script:   
 - cpplint for_lint.cpp
 - cppcheck for_lint.cpp
