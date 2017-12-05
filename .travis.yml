@@ -16,8 +16,9 @@ cache:
 before_install:
   - sudo apt-get install -y valgrind
   
-script:   
-  - valgrind --leak-check=yes open
+script:
+  - g++ -g for_lint.cpp
+  - valgrind --leak-check=yes ./a.out
 
 after_script:
   - echo "good build"
