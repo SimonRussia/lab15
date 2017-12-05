@@ -1,0 +1,9 @@
+language: cpp
+
+notifications:
+  email: false
+
+script:   
+- cpplint for_lint.cpp
+- cppcheck for_lint.cpp
+- oclint for_lint.cpp
