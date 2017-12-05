@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/SimonRussia/lab15.svg?branch=master)](https://travis-ci.org/SimonRussia/lab15) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](/LICENSE)
 ## Laboratory work XV
 
 Данная лабораторная работа посвещена изучению инструментов статического и динамического анализа кода
