@@ -1,7 +1,5 @@
 language: cpp
 
-sudo: false
-
 notifications:
   email: false
   
@@ -12,10 +10,7 @@ dist: trusty
 before_install:
   - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
   - sudo apt-get update -qq
-  - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.9; fi
-  - if [ "$CXX" = "g++" ]; then export CXX="g++-4.9" CC="gcc-4.9"; fi
-  - sudo pip install cpp-coveralls pyyaml
   - sudo apt-get install -y valgrind libeigen3-dev
   
 script:   
-- valgrind --leak-check=yes -v open
+- valgrind --leak-check=yes open
