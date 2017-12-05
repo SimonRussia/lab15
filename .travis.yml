@@ -7,10 +7,14 @@ compiler: gcc
 
 dist: trusty
 
+cache:
+  apt: true
+  directories:
+    - "$HOME/.cache/pip"
+    - "$HOME/.cache/nvim-deps"
+
 before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -qq
-  - sudo apt-get install -y valgrind libeigen3-dev
+  - sudo apt-get install -y valgrind
   
 script:   
   - valgrind --leak-check=yes open
